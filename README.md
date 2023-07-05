@@ -1,5 +1,10 @@
 # Reproduction of Rari Finance hack
 
+## References
+- https://twitter.com/BlockSecTeam/status/1520350965274386433
+- https://github.com/SunWeb3Sec/DeFiHackLabs/blob/c4564f5ad21783cb81969540b57b07dd12e53b2a/src/test/Rari_exp.t.sol
+
+## Result
 ```
 testProfit(): failed!💥
   Call sequence:
@@ -18,4 +23,5 @@ Event sequence:
 
 ```
 
+## Screenshot
 ![rari-hack-result](https://github.com/rappie/echidna-rari-hack/assets/1430820/374c2c83-b33a-4099-b6f6-513e281df33c)
