@@ -1,10 +1,12 @@
 # Reproduction of Rari Finance hack
 
-## References
-- https://twitter.com/BlockSecTeam/status/1520350965274386433
-- https://github.com/SunWeb3Sec/DeFiHackLabs/blob/c4564f5ad21783cb81969540b57b07dd12e53b2a/src/test/Rari_exp.t.sol
+## Description
+This is a reproduction of the Rari Finance hack on April 30 2022, using on-chain fuzzing with Echidna.
 
-## Result
+We're using a single invariant which checks if an actor is able to increase their balance by an unreasonably large amount. We have a basic set of functions such as `mint`, `borrow` and `exitMarket`, etc. Since the hack involves reentrancy, we've implemented rudementary reentrancy support in [EchidnaReentrancy](src/echidna/EchidnaReentrancy.sol).
+
+After running for approximately 30 minutes (1 worker), we can detect a significant increase in funds for the attacking actor. The shrunk sequence can be seen below.
+
 ```
 testProfit(): failed!💥
   Call sequence:
@@ -22,3 +24,7 @@ Event sequence:
     Debug(«account2Profit», 0) from: 0xa329c0648769a73afac7f9381e08fb43dbea72
 
 ```
+
+## Links
+- https://twitter.com/BlockSecTeam/status/1520350965274386433
+- https://github.com/SunWeb3Sec/DeFiHackLabs/blob/c4564f5ad21783cb81969540b57b07dd12e53b2a/src/test/Rari_exp.t.sol
