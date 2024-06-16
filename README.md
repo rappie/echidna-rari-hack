@@ -1,7 +1,7 @@
 # Reproduction of Rari Finance hack
 
 ## Description
-This is a reproduction of the Rari Finance hack on April 30 2022, using on-chain fuzzing with Echidna.
+This is a reproduction of the $80M Rari Finance hack on April 30 2022, using on-chain fuzzing with Echidna.
 
 We're using a single invariant which checks if an actor is able to increase their balance by an unreasonably large amount. We have a basic set of functions such as `mint`, `borrow` and `exitMarket`, etc. Since the hack involves reentrancy, we've implemented rudementary reentrancy support in [EchidnaReentrancy](src/echidna/EchidnaReentrancy.sol).
 
